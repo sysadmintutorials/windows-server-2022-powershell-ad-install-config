@@ -47,7 +47,7 @@ Function Timestamp
     }
 
 # Log File Location
-$logfile = ".\Documents\Windows-2022-AD-Deployment-log.txt"
+$logfile = "C:\SysadminTutorialsScript\Windows-2022-AD-Deployment-log.txt"
 
 # Create Log File
 Write-Host "-= Get timestamp =-" -ForegroundColor Green
@@ -64,6 +64,7 @@ ELSE {
 Write-Host "-= Creating Logfile =-" -ForegroundColor Green
 
 Try{
+   New-Item -Path 'C:\SysadminTutorialsScript' -ItemType Directory
    New-Item -ItemType File -Path $logfile -ErrorAction Stop | Out-Null
    Write-Host "-= The file $($logfile) has been created =-" -ForegroundColor Green
    }
