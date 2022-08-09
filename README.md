@@ -1,6 +1,6 @@
 # Automating the install of Windows Server 2022 Active Directory with Powershell
 #### Date: 26/02/2022
-#### Version: 1
+#### Version: 2
 #### Blog: www.sysadmintutorials.com
 #### Twitter: @systutorials
 #### Youtube Tutorial: https://youtu.be/qN1-b-PVvfU
