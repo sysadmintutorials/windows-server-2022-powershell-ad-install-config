@@ -40,6 +40,9 @@ $computername = 'SERVERDC1' # enter in your server name
 $ntpserver1 = '0.au.pool.ntp.org'
 $ntpserver2 = '1.au.pool.ntp.org'
 
+# DNS Variables
+$reversezone = '1.168.192.in-addr.arpa'
+
 # Timestamp
 Function Timestamp
     {
@@ -285,8 +288,8 @@ Write-Host "-= Set DNS Scavenging =-" -ForegroundColor Yellow
 Timestamp
 Try{
     Set-DnsServerScavenging -ScavengingState $true -ScavengingInterval 7.00:00:00 -Verbose -ErrorAction Stop
-    Set-DnsServerZoneAging vlab.local -Aging $true -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00 -Verbose -ErrorAction Stop
-    Set-DnsServerZoneAging 1.168.192.in-addr.arpa -Aging $true -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00 -Verbose -ErrorAction Stop
+    Set-DnsServerZoneAging $domainname -Aging $true -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00 -Verbose -ErrorAction Stop
+    Set-DnsServerZoneAging $reversezone -Aging $true -RefreshInterval 7.00:00:00 -NoRefreshInterval 7.00:00:00 -Verbose -ErrorAction Stop
     Add-Content $logfile "$($Timestamp) - DNS Scavenging Complete"
     }
 Catch{
